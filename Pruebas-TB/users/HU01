@@ -67,3 +67,40 @@ CA76:
 Examples:
     | menu de opciones  | opción de historial                   | caja de mensaje   |
 	| "historial"       | "buscar por nombre de la acitividad"  |  "Ludo"          |
+	Feature: HU09: Como usuario, quiero llamar a mis amigos de la app para dialogar de mi situación actual.
+Scenario: E23: Llamar a amigos
+CA27
+    Given me encuentro en el chat personal
+    When seleccione el botón de llamar
+    Then el sistema reconocerá que quiero realizar una llamada y me redireccionará al formulario de llamada
+Examples:
+    | usuario | boton para llamar a amigos | pestaña de inicio de llamada |
+    | mt322 | se hace clic | se inicia la llamada |
+
+Scenario: E24: Cancelar llamada a un amigo
+CA28
+    Given me encuentro en el chat personal
+    When seleccione el botón de llamar y luego seleccione el botón 
+    Then el sistema reconocerá que quiero realizar una llamada y me redireccionará al formulario de llamada
+Examples:
+    | usuario | boton para llamar a amigos | pestaña de inicio de llamada |
+    | mt322 | no se hace clic | no se muestra nada |
+
+Feature: HU15: Como paciente, quiero tener la opción de añadir amigos cuando juego para tener un grupo de apoyo en mis crisis.
+Scenario: E33: Agregar amigos
+CA37
+    Given me encuentro en el juego de la app
+    When seleccione el botón “+”
+    Then añadiré al usuario con el que estoy jugando e interactuando como amigo
+Examples:
+    | usuario | perfil de usuario | boton para añadir amigos |
+    | mt322 | se observa el perfil | se envia solicitud de amistad |
+
+Scenario: E34: Eliminar amigos
+CA38
+    Given me encuentro en el juego de la app
+    When seleccione el botón “-”
+    Then eliminare al usuario con el que estoy jugando como amigo.
+Examples:
+    | usuario | perfil de usuario | boton para eliminar amigos |
+    | mt322 | se observa el perfil | se retira al seleccionado de la lista de amigos |
