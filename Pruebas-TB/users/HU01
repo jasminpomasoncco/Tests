@@ -32,3 +32,38 @@ Then se muestra un mensaje de error con puntos rojos en la de password
 Examples:
     | nombre | email | password | menu principal |
     | Luis  | wx31  | otro  | "password incorrecto" |
+
+
+ Feature: HU35: Como usuario, al retirarme de la sesión quiero que se me dé una función opcional para poder observar todas las actividades realizadas por mí durante el tiempo en el que estuve dentro de la app.
+Scenario: E69: Cargar historial de actividades.
+
+CA74:
+	Given  que el paciente ha ingresado a la aplicación correctamente y realizo sus actividades 
+	When  el paciente ingrese a la opción de “Historial” en el menú de opciones 
+	Then  el aplicativo mostrara las actividades que realizo el paciente anteriormente y el paciente podrá hacer uso de buscar por fecha o nombre de la actividad según la preferencia del paciente 
+
+Examples:
+	| menu de opciones  |caja de mensajes                             | lista de actividades                         |
+	| "historial"       | "usted realizo está lista de actividad hoy" | 1.  Jugar Ludo  Lunes a las 5:34 pm a 7:00 pm|
+
+Scenario: E70: Buscar por fecha 
+
+CA75:
+	Given  que el paciente se encuentra en la opción de “Historial” y haga click en “Buscar por fecha”
+	When  el paciente elija un rango de hora
+	Then  el aplicativo automáticamente las actividades realizadas en ese rango.
+
+Examples:
+	| menu de opciones  | opción de historial    | caja de mensaje   |
+	| "historial"       | "buscar por fecha"     |  "lunes"          |
+
+Scenario: E71: Buscar por nombre de la actividad 
+
+CA76:
+	Given  que el paciente se encuentra en la opción de “Historial” y  haga click en “Buscar por nombre de la actividad”
+	When  el paciente escriba el nombre de la actividad 
+	Then  se listara la fecha en la que realizo esa actividad. 
+
+Examples:
+    | menu de opciones  | opción de historial                   | caja de mensaje   |
+	| "historial"       | "buscar por nombre de la acitividad"  |  "Ludo"          |
