@@ -104,3 +104,40 @@ CA38
 Examples:
     | usuario | perfil de usuario | boton para eliminar amigos |
     | mt322 | se observa el perfil | se retira al seleccionado de la lista de amigos |
+    Feature: HU19: Como usuario, quiero tener la opción de reclamar a los administradores en caso vea contenido inapropiado para que la app no muestre ese tipo de contenido a otros usuarios.
+Scenario: E38: El usuario encuentra contenido inapropiado
+CA42
+    Given me encuentro usando la app
+    When me encuentro algo bizarro
+    Then reportaré y reclamaré para que dicho contenido no vuelva a aparecer
+Examples:
+    | usuario | pestaña de la publicación inapropiada | boton para reportar publicación |
+    | mt322 | se observa la publicación | se reporta la publicación |
+
+Scenario: E39: El psicólogo encuentra contenido inapropiado o información fraudulenta
+CA43
+    Given me encuentro revisando la app
+    When me encuentro algo inapropiado o con información engañosa
+    Then denunciaré a dicha persona y reportaré la información inapropiada
+Examples:
+    | usuario | pestaña de la publicación inapropiada | boton para denunciar publicación |
+    | mt322 | se observa la publicación | se denuncia la publicación |
+
+Feature: HU16:Como paciente, quiero un botón de pánico para recibir ayuda psicológica en el momento que tenga una crisis.
+Scenario: E33: Paciente en crisis
+CA37
+    Given me encuentro en una crisis debido a mi problema psicológico
+    When presione el botón de pánico de la app
+    Then el sistema me comunicara con psicólogo especialista para estos casos
+Examples:
+    | usuario | pestaña para aplicar el botón | boton de pánico |
+    | mt322 | se observa el botón y lo que implica presionarlo | se presiona el botón y se muestra que fue presionado en el perfil |
+
+Scenario: E34: Psicólogo queriendo ayudar
+CA38
+    Given hay un paciente en crisis. 
+    When el psicólogo esté dentro de la app. 
+    Then habrá un apartado donde se verá que personas necesitan ayuda rápida
+Examples:
+    | usuario | pestaña de usuarios en crisis | boton de ayuda |
+    | mt322 | se observa el usuario que se quiere ayudar | se presiona el botón y se le avisa al usuarion en crisis |
