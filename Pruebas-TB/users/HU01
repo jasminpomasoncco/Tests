@@ -208,3 +208,35 @@ CA68:
 Examples:
     | sesión programada        |                    caja de mensaje                 | lista de notificaciones                | 
 	| cita hoy a las 10:00 am  | "usted tiene una cita programada a las 10:00 pm "  | Citas de psicología  Importancia: Muy Alta |
+    Feature: HU17:Como psicólogo, quiero dar una atención especializada con recursos tecnológicos proporcionados por la app para una mejor atención 
+Scenario: E35: Sugerencias de recursos tecnológicos de parte de los psicólogos
+
+CA39: 
+    Given que me encuentro dando sesiones psicológicas individuales .
+    When culmine la sesión al presionar el botón de sugerencias. 
+    Then podré sugerir a los desarrolladores agregar nuevos recursos o artefactos para las sesiones
+Examples:
+    | boton de sugerencias | caja de texto para mandar mensaje |
+    | "Dejar sugerencias"  | "escriba aquí su sugerencia "      |
+
+
+Feature: HU23:Como usuario, quiero tener una tabla de horarios para ver, programar y archivar los horarios de mi vida cotidiana, ya que a veces hay eventos recientes que no son tomados en cuenta para mi horario. 
+Scenario: E44: Querer construir un horario
+
+CA39: 
+    Given  Dado que tengo muchas cosas pendientes para hacer. 
+    When quiera organizarme mejor.
+    Then crearé eventos dentro de mi horario en la app.
+Examples:
+    | boton de horario  |  caja de texto                 |
+    | "crear actividad" | "examen el lunes a las 7:00 am"|
+
+Scenario: E45: Eventos súbitos e imprevistos
+CA50: 
+    Given que a veces suceden cosas imprevistas tendré nuevas cosas para hacer
+    When  tenga nuevos eventos para hacer
+    Then crearé dichos eventos dentro de mi horario en la app
+
+Examples:
+    | boton de horario    |  botón    | caja de texto|
+    | "agregar actividad" | "+"       | "examen el lunes a las 10:00 am"|
