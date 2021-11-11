@@ -1,0 +1,9 @@
+Feature: HU01:  Como paciente, quiero iniciar sesión para poder distraerme y compartir cosas en común que tengo con otras personas.
+Scenario: E01: Accede con las credenciales correctas
+Given que me encuentro en el formulario de registro. 
+When  ingrese el nombre de paciente, email, password y presione el botón guardar.
+Then se muestra un mensaje de confirmación
+
+Examples:
+    | nombre | email | password | menu principal |
+    | Luis  | wx31  | wx31  | Home-Especialidades-Rutinas |
