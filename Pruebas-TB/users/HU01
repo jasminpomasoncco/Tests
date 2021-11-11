@@ -141,3 +141,70 @@ CA38
 Examples:
     | usuario | pestaña de usuarios en crisis | boton de ayuda |
     | mt322 | se observa el usuario que se quiere ayudar | se presiona el botón y se le avisa al usuarion en crisis |
+
+Feature: HU24:Como usuario, quiero tener la opción de ver el horario que dispone cada psicólogo para elegir el horario que más se acomode a mi tiempo.
+Scenario: E46: Cargar lista de psicólogos disponibles.
+
+C51: 
+	Given que el paciente ha ingresado a la aplicación correctamente. 
+	When el paciente ingrese a la opción de “Agenda” en el menú de opciones 
+	Then  el aplicativo mostrara los horarios disponibles de cada psicólogo Y el paciente podrá hacer uso de buscar por horario o psicólogo según la preferencia del paciente 
+Examples: 
+	| Opción de menú de opciones | opción buscar                    |  caja de mensaje                 |
+	| "agenda"                   | " buscar hoararios disponibles " | "horario libre hoy a las 4:00pm" |
+
+Scenario: E47: Buscar por horario 
+
+C52: 
+	Given que el paciente se encuentra en la opción de agenda Y haga click en “Buscar por horario”. 
+	When el paciente elija un rango de hora para la cita. 
+	Then el aplicativo automáticamente listara los horarios disponibles en los que se hará el posible registro de cita.
+
+Examples:
+	| opción de menú       |                     caja de mensaje                          |
+	| "buscar por horario" | " el psicólogo Juan Ramirez está disponible en este horario" |
+
+
+Scenario: E48: Buscar por psicólogo 
+
+C53: 
+	Given  que el paciente se encuentra en la opción de agenda y haga click en “Buscar por nombre del psicólogo”.
+	When  el paciente escriba el nombre del psicólogo. 
+	Then  se listará los horarios disponibles del psicólogo seleccionado.
+Examples:
+	| opción de menu                   | caja de texto   |           caja de mensaje                   |
+	| "buscar por nombre de psicólogo" | "Juan Ramirez"  | "el psicólogo Juan Ramirez está disponible" |
+
+
+Feature: HU32: Como usuario, quiero que la aplicación me permita ordenar mis notificaciones para organizarlas en un rango de importancia, por ejemplo, las notificaciones de sesiones psicológicas.
+Scenario: E61: recibir notificaciones de sesiones psicológicas
+
+CA66:
+	Given  que no me encuentro en la app 
+	When tenga alguna sesión programada
+	Then  el usuario recibirá un recordatorio de la sesión en la sección de notificaciones.  
+Examples:
+	| sesión programada        |                    caja de mensaje                   |
+	| cita hoy a las 10:00 am  | "usted tiene una cita programada a las 10:00 pm "    |
+  
+Scenario: E62: recibir notificaciones de los videojuegos de la aplicación
+
+CA67:
+	Given  que no me encuentro en la app
+	When tenga algún comentario de juegos
+	Then  me llegará un mensaje   
+Examples:
+	| comentario             | caja de mensaje |
+	|      "que buen juego"  | "usted tiene un comentario nuevo" |
+
+
+Scenario: E63: recibir notificaciones priorizadas
+
+CA68:
+	Given  que no me encuentro en la app 
+	When tenga  sesiones o actualizaciones pendientes
+	Then  me llegará un mensaje y mis notificaciones se priorizarán por importancia 
+ 
+Examples:
+    | sesión programada        |                    caja de mensaje                 | lista de notificaciones                | 
+	| cita hoy a las 10:00 am  | "usted tiene una cita programada a las 10:00 pm "  | Citas de psicología  Importancia: Muy Alta |
