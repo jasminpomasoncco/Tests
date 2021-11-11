@@ -7,3 +7,28 @@ Then se muestra un mensaje de confirmación
 Examples:
     | nombre | email | password | menu principal |
     | Luis  | wx31  | wx31  | Home-Especialidades-Rutinas |
+Scenario: E02:Registra paciente con datos incorrectos
+Given que me encuentro en el formulario de registro. 
+When   ingrese el nombre de paciente incorrecto con números, email, password y presione el botón guardar.
+Then se muestra un mensaje de error con puntos rojos en la sección de nombre.
+
+Examples:
+     | nombre | email | password | menu principal |
+    | otro  | wx31  | wx31  | "nombre incorrecto" |
+
+ 
+Given  que me encuentro en el formulario de registro .
+When   Cuando ingrese el nombre de paciente, email incorrecto que no existe, password y presione el botón guardar.
+Then  se muestra un mensaje de error con puntos rojos en la sección de email.
+
+Examples:
+     | nombre | email | password | menu principal |
+    | Luis  | otro  | wx31  | "email incorrecto" |
+
+Given  que me encuentro en el formulario de registro. 
+When   ingrese el nombre de paciente, email, password incorrecto caracteres iguales todos y presione el botón guardar. 
+Then se muestra un mensaje de error con puntos rojos en la de password
+
+Examples:
+    | nombre | email | password | menu principal |
+    | Luis  | wx31  | otro  | "password incorrecto" |
