@@ -20,7 +20,7 @@ CA75:
 
 Examples:
 	| menu de opciones  | opción de historial    | caja de mensaje   |
-	| "historial"       | "buscar por fecha"     |  "lunes"          |
+	| "historial"       | "buscar por fecha"     |  "20/11/2021"     |
 
 Scenario: E71: Buscar por nombre de la actividad 
 
@@ -44,12 +44,13 @@ Examples:
 
 Scenario: E24: Cancelar llamada a un amigo
 CA28
-    Given me encuentro en el chat personal
-    When seleccione el botón de llamar y luego seleccione el botón 
-    Then el sistema reconocerá que quiero realizar una llamada y me redireccionará al formulario de llamada
+    Given dentro de la aplicación
+    When mi amigo me llama y presiono el botón "No contestar"
+    Then el sistema reconocerá que estoy rechazando la llamada y se cerrará la pestaña 
 Examples:
-    | usuario | boton para llamar a amigos | pestaña de inicio de llamada |
-    | mt322 | no se hace clic | no se muestra nada |
+    | usuario | boton para cancelar llamadas | pestaña de inicio de llamada   |
+    | mt322   | "No contestar"               | "Usted ha cancelado la llamada |
+
 
 Feature: HU15: Como paciente, quiero tener la opción de añadir amigos cuando juego para tener un grupo de apoyo en mis crisis.
 Scenario: E33: Agregar amigos
